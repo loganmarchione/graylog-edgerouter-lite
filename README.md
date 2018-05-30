@@ -13,3 +13,6 @@ Then, click *Manage extractors*, then click on *Actions*, then *Import extractor
 ![Import extractors](img/20180530_002.png)
 
 Copy/paste the raw JSON [here](https://raw.githubusercontent.com/loganmarchione/graylog-edgerouter-lite/master/erl3-grok.json) into the box and click *Add extractors to input*.
+
+You can use the searches/data to make some fancy dashboards (geolocation setup is shown [here](http://docs.graylog.org/en/2.4/pages/geolocation.html)).
+![dashboard](img/20180530_003.png)
