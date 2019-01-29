@@ -18,7 +18,7 @@
       "title": "ERL Firewall02",
       "extractor_type": "grok",
       "converters": [],
-      "order": 0,
+      "order": 1,
       "cursor_strategy": "copy",
       "source_field": "message",
       "target_field": "",
