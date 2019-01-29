@@ -9,7 +9,7 @@
       "source_field": "message",
       "target_field": "",
       "extractor_config": {
-        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:ruleset}\\]IN=%{DATA:in} OUT=%{DATA:out} MAC=%{GREEDYDATA:mac} SRC=%{IPV4:src} DST=%{IPV4:dst} LEN=%{INT:len} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{INT:ttl} ID=%{INT:id} PROTO=%{WORD:proto} SPT=%{INT:spt} DPT=%{INT:dpt} LEN=%{INT:len2}"
+        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:edgeos_ruleset}\\]IN=%{DATA:edgeos_iface_in} OUT=%{DATA:edgeos_iface_out} MAC=%{GREEDYDATA:edgeos_mac} SRC=%{IPV4:edgeos_ipv4_src} DST=%{IPV4:edgeos_ipv4_dst} LEN=%{INT:edgeos_len1} TOS=%{WORD:edgeos_tos} PREC=%{WORD:edgeos_prec} TTL=%{INT:edgeos_ttl} ID=%{INT:edgeos_id1} (%{DATA:edgeos_flags} )?PROTO=%{WORD:edgeos_proto} SPT=%{INT:edgeos_spt} DPT=%{INT:edgeos_dpt} LEN=%{INT:edgeos_len2}"
       },
       "condition_type": "string",
       "condition_value": ""
@@ -18,12 +18,12 @@
       "title": "ERL Firewall02",
       "extractor_type": "grok",
       "converters": [],
-      "order": 1,
+      "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
       "target_field": "",
       "extractor_config": {
-        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:ruleset}\\]IN=%{DATA:in} OUT=%{DATA:out} MAC=%{GREEDYDATA:mac} SRC=%{IPV4:src} DST=%{IPV4:dst} LEN=%{INT:len} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{INT:ttl} ID=%{INT:id} %{DATA:flags} PROTO=%{WORD:proto} SPT=%{INT:spt} DPT=%{INT:dpt} LEN=%{INT:len2}"
+        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:edgeos_ruleset}\\]IN=%{DATA:edgeos_iface_in} OUT=%{DATA:edgeos_iface_out} MAC=%{GREEDYDATA:edgeos_mac} SRC=%{IPV4:edgeos_ipv4_src} DST=%{IPV4:edgeos_ipv4_dst} LEN=%{INT:edgeos_len1} TOS=%{WORD:edgeos_tos} PREC=%{WORD:edgeos_prec} TTL=%{INT:edgeos_ttl} ID=%{INT:edgeos_id1} (%{DATA:edgeos_flags} )?PROTO=%{WORD:edgeos_proto} SPT=%{INT:edgeos_spt} DPT=%{INT:edgeos_dpt} WINDOW=%{INT:edgeos_window} RES=%{WORD:edgeos_res} %{DATA:edgeos_state} URGP=%{INT:edgeos_urgp}"
       },
       "condition_type": "string",
       "condition_value": ""
@@ -37,65 +37,9 @@
       "source_field": "message",
       "target_field": "",
       "extractor_config": {
-        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:ruleset}\\]IN=%{DATA:in} OUT=%{DATA:out} MAC=%{GREEDYDATA:mac} SRC=%{IPV4:src} DST=%{IPV4:dst} LEN=%{INT:len} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{INT:ttl} ID=%{INT:id} %{DATA:flags} PROTO=%{WORD:proto} TYPE=%{INT:type} CODE=%{INT:code} ID=%{INT:id2} SEQ=%{INT:seq}"
+        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:edgeos_ruleset}\\]IN=%{DATA:edgeos_iface_in} OUT=%{DATA:edgeos_iface_out} MAC=%{GREEDYDATA:edgeos_mac} SRC=%{IPV4:edgeos_ipv4_src} DST=%{IPV4:edgeos_ipv4_dst} LEN=%{INT:edgeos_len1} TOS=%{WORD:edgeos_tos} PREC=%{WORD:edgeos_prec} TTL=%{INT:edgeos_ttl} ID=%{INT:edgeos_id1} %{DATA:edgeos_flags} PROTO=%{WORD:edgeos_proto} TYPE=%{INT:edgeos_type} CODE=%{INT:edgeos_code} ID=%{INT:edgeos_id2} SEQ=%{INT:edgeos_seq}"
       },
       "condition_type": "string",
-      "condition_value": ""
-    },
-    {
-      "title": "ERL Firewall04",
-      "extractor_type": "grok",
-      "converters": [],
-      "order": 3,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "",
-      "extractor_config": {
-        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:ruleset}\\]IN=%{DATA:in} OUT=%{DATA:out} MAC=%{GREEDYDATA:mac} SRC=%{IPV4:src} DST=%{IPV4:dst} LEN=%{INT:len} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{INT:ttl} ID=%{INT:id} %{DATA:flags} PROTO=%{WORD:proto} SPT=%{INT:spt} DPT=%{INT:dpt} WINDOW=%{INT:window} RES=%{WORD:res} %{DATA:state} URGP=%{INT:urgp}"
-      },
-      "condition_type": "string",
-      "condition_value": ""
-    },
-    {
-      "title": "ERL Firewall05",
-      "extractor_type": "grok",
-      "converters": [],
-      "order": 5,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "",
-      "extractor_config": {
-        "grok_pattern": "%{HOSTNAME:host} %{WORD:facility}: \\[%{GREEDYDATA:ruleset}\\]IN=%{DATA:in} OUT=%{DATA:out} MAC=%{GREEDYDATA:mac} SRC=%{IPV4:src} DST=%{IPV4:dst} LEN=%{INT:len} TOS=%{WORD:tos} PREC=%{WORD:prec} TTL=%{INT:ttl} ID=%{INT:id} PROTO=%{WORD:proto} SPT=%{INT:spt} DPT=%{INT:dpt} WINDOW=%{INT:window} RES=%{WORD:res} %{DATA:state} URGP=%{INT:urgp}"
-      },
-      "condition_type": "none",
-      "condition_value": ""
-    },
-    {
-      "title": "ERL CRON execution",
-      "extractor_type": "grok",
-      "converters": [],
-      "order": 6,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "",
-      "extractor_config": {
-        "grok_pattern": "%{HOSTNAME:host} %{DATA:cron_process}\\[%{BASE10NUM:cron_session}\\]: \\(%{DATA:cron_name}\\) %{DATA:cron_state} %{GREEDYDATA:cron_message}"
-      },
-      "condition_type": "none",
-      "condition_value": ""
-    },
-    {
-      "title": "ERL CRON General messages",
-      "extractor_type": "grok",
-      "converters": [],
-      "order": 7,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "",
-      "extractor_config": {
-        "grok_pattern": "%{HOSTNAME:host} %{DATA:cron_process}\\[%{BASE10NUM:cron_session}\\]: pam_unix\\(cron:session\\): %{GREEDYDATA:cron_message}"
-      },
-      "condition_type": "none",
       "condition_value": ""
     }
   ],
